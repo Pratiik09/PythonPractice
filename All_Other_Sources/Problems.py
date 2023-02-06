@@ -87,3 +87,16 @@ for i in n_str:
 else:
     print("Is Binary")
 
+### Sum of elements in list using Recursion ###
+def sum( inp_list, index ):
+    if index == 0:
+        return 0
+    else:
+        return inp_list[index-1] + sum( inp_list, index-1 )
+        
+inp_list = [2,5,7,7]
+
+length = len(inp_list)
+
+print(sum( inp_list, length ))
+
