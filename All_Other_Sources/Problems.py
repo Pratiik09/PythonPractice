@@ -100,3 +100,16 @@ length = len(inp_list)
 
 print(sum( inp_list, length ))
 
+### Swap Numbers w/o 3rd variable ###
+a = 7
+b = 2
+
+a = a-b  # a=5
+b = a+b  # b=7
+a = b-a  # a=2
+
+print(a,b)
+
+# OUTPUT: 2,7
+
+
