@@ -75,4 +75,15 @@ for i in range(0,num):
 print(fib_list)
 
 
-###  ###
+### Check Binary or Not ###
+n = 1110
+
+n_str = str(n)
+
+for i in n_str:
+    if i!='0' and i!='1':
+        print("Not Binary")
+        break
+else:
+    print("Is Binary")
+
