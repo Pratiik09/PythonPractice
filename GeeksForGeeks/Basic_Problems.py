@@ -1,7 +1,12 @@
 ### Maximum of 2 Numbers ###
 
 # Approaches:
-# if-else | max() function | Ternary operator | Lambda function | List Comprehension | sort() and fetch list[-1]
+# if-else | max() function | Ternary operator | Lambda function | sort() and fetch list[-1]
+# Ternary Eg:
+a if a<b else b
+
+# Lambda Eg
+max = lambda a,b: a if a<b else b
 
 
 ### Factorial Problem ###
@@ -11,7 +16,7 @@
 n = 5
 
 def factorial(n):
-    if n == 0:
+    if n == 1:
         return 1
     else:
         return n * factorial(n-1)
@@ -22,6 +27,14 @@ print(val)
 OUTPUT: 120
 
 # Approach Iterative using for loop
+def factorial(n):
+    fact = 1
+    for i in range(1,n+1):
+        fact *= i
+    return fact
+
+val = factorial(n)
+print(val)
 
 # Approach numpy.prod()
 
@@ -29,7 +42,7 @@ import numpy as np
 
 n = 5
 
-fact = np.prod( [i for i in range(1, n+1)] )
+fact = np.prod( [i for i in range(1, n+1)] )  # np.prod will multiply elements of the iterable
 print(fact)
 
 
@@ -160,7 +173,7 @@ OUTPUT: 8
 # The time complexity of this program is O(2^n) because for each call to the Fibonacci function, 
 # two more calls are made, leading to an exponential growth of the number of function calls
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 ## Dynamic Approach as we are solving the problem from a bottom-up method (as we are calculating from 1st number to nth number) to solve the problem
 def Fibonacci(n):
