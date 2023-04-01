@@ -94,7 +94,7 @@ def sum( inp_list, index ):
     else:
         return inp_list[index-1] + sum( inp_list, index-1 )
         
-inp_list = [2,5,7,7]
+inp_list = [2,5,7,8]
 
 length = len(inp_list)
 
@@ -105,7 +105,7 @@ a = 7
 b = 2
 
 a = a-b  # a=5
-b = a+b  # b=7
+b = b+a  # b=7
 a = b-a  # a=2
 
 print(a,b)
