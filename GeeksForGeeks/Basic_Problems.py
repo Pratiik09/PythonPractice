@@ -43,7 +43,7 @@ print(fact)
 ### Compound Interest ###
 
 # Formula:
-# A = P(1 + R/100) t 
+# A = P(1 + R/100) ^ t 
 
 # Compound Interest = A – P 
 
