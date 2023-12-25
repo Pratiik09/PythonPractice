@@ -3,10 +3,11 @@
 # Approaches:
 # if-else | max() function | Ternary operator | Lambda function | sort() and fetch list[-1]
 # Ternary Eg:
-a if a<b else b
+a if a>b else b
 
 # Lambda Eg
-max = lambda a,b: a if a<b else b
+max = lambda a,b: a if a>b else b
+max(a,b)
 
 
 ### Factorial Problem ###
@@ -150,11 +151,11 @@ OUTPUT: False
 
 ### Find nth Fibonacci Number ###
 def Fibonacci(n):
-    if (n <= 0):
+    if (n < 0):
         print("Incorrect Input")
-    elif n == 1:  # Base case 1
+    elif n == 0:  # Base case 1
         return 0
-    elif n == 2:  # Base case 2
+    elif n == 1:  # Base case 2
         return 1
     else:
         return Fibonacci(n-1) + Fibonacci(n-2)
@@ -166,7 +167,7 @@ OUTPUT: 8
 # Time Complexity: O(2^N)
 
 
-# In any recursion problem, base case is important to get an exit. Here n==1 and n==2 are base cases
+# In any recursion problem, base case is important to get an exit. Here n==0 and n==1 are base cases
 
 # Fibonacci Series: 0, 1, 1, 2, 3, 5, 8
 

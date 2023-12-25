@@ -17,7 +17,6 @@ print(transposed_matrix)
 # OUTPUT:
 [[1, 4], [2, 5], [3, 6]]
 
-
 ### Transpose of Matrix using List Comprehension ###
 
 matrix = [ [1,2,3], [4,5,6] ]
@@ -87,19 +86,6 @@ for i in n_str:
 else:
     print("Is Binary")
 
-### Sum of elements in list using Recursion ###
-def sum( inp_list, index ):
-    if index == 0:
-        return 0
-    else:
-        return inp_list[index-1] + sum( inp_list, index-1 )
-        
-inp_list = [2,5,7,8]
-
-length = len(inp_list)
-
-print(sum( inp_list, length ))
-
 ### Swap Numbers w/o 3rd variable ###
 a = 7
 b = 2
@@ -111,5 +97,3 @@ a = b-a  # a=2
 print(a,b)
 
 # OUTPUT: 2,7
-
-
