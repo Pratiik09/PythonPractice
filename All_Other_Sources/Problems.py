@@ -123,3 +123,19 @@ def bubblesort(arr):
   return arr
   
 print(bubblesort(a))
+
+### Find Second Largest Element ###
+nums = [10, 5, 8, 20, 3, 15]
+
+def find_second_largest(arr):
+  largest = -99999
+  second_largest = -99999
+  for elem in arr:
+    if elem > largest:
+      second_largest = largest
+      largest = elem
+    elif elem > second_largest and elem < largest:
+      second_largest = elem
+  return second_largest
+  
+print(find_second_largest(nums))
