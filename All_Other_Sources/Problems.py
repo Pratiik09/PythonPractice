@@ -97,3 +97,29 @@ a = b-a  # a=2
 print(a,b)
 
 # OUTPUT: 2,7
+
+### Find Largest in List ###
+input_list = [2,4,6,11,34,1,3]
+
+def find_largest(inp_list):
+  largest = inp_list[0]
+  for elem in inp_list:
+    if elem > largest:
+      largest = elem
+  return largest
+  
+print(find_largest(input_list))
+
+### Bubble Sort ###
+a = [3,1,4,2]
+
+def bubblesort(arr):
+  n = len(arr)
+  for i in range(n-1):      # Iterate only n-1 times, because last element will be max right after 1st iteration (Optimization Perspective)
+    for j in range(n-i-1):  # Everytime, we go 1 index less. If we don't add -1, it will give out og index error during 1st iteration
+      if arr[j]>arr[j+1]:
+        arr[j], arr[j+1] = arr[j+1], arr[j]
+    
+  return arr
+  
+print(bubblesort(a))
