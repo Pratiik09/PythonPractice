@@ -124,6 +124,28 @@ def bubblesort(arr):
   
 print(bubblesort(a))
 
+
+### Bubble Sort Application Question - Sort Based on 2nd sElement of Tuple ###
+data = {('ant', 2), ('bat', 3), ('cat', 4)}
+
+# Convert set of tuples to a list for easier manipulation
+data_list = list(data)
+
+# Bubble sort implementation based on the second element of each tuple
+n = len(data_list)
+for i in range(n):
+    for j in range(0, n - i - 1):
+        if data_list[j][1] < data_list[j + 1][1]:
+            # Swap elements if the second element of the tuple is smaller
+            data_list[j], data_list[j + 1] = data_list[j + 1], data_list[j]
+
+# Displaying the sorted list
+print(data_list)
+
+# Output
+[('cat', 4), ('bat', 3), ('ant', 2)]
+
+
 ### Find Second Largest Element ###
 nums = [10, 5, 8, 20, 3, 15]
 
@@ -139,3 +161,10 @@ def find_second_largest(arr):
   return second_largest
   
 print(find_second_largest(nums))
+
+### Sort Based on 2nd Element of Tuple in Dictionary
+data = {('ant', 2), ('bat', 3), ('cat', 4)}   # data is of type Set
+
+sorted_data = sorted(data, key=lambda x: x[1], reverse=True)
+
+print(sorted_data)
