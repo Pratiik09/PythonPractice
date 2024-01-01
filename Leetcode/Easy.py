@@ -115,3 +115,61 @@ class Solution:
                 int_val += roman_int[s[i]]
         return int_val
 
+### 66. Plus One ###
+"""
+Example 1:
+
+Input: digits = [1,2,3]
+Output: [1,2,4]
+Explanation: The array represents the integer 123.
+Incrementing by one gives 123 + 1 = 124.
+Thus, the result should be [1,2,4].
+"""
+# Pseudo
+"""
+- if digit is 9, make digit 0 and carry 1 while loop keeping carry = 0 as exit condition
+"""
+
+# Reverse Traversal
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        digits = digits[::-1]
+
+        carry = 1
+        i = 0
+
+        while carry==1:
+            if i < len(digits):
+                if digits[i] == 9:
+                    digits[i] = 0
+                else:
+                    digits[i] += 1
+                    carry = 0
+            else:
+                digits.append(1)
+                carry = 0
+            i += 1
+        return digits[::-1]
+
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        carry = 1
+        i = len(digits)-1
+
+        while carry==1:
+            if i < len(digits):
+                if i==-1:
+                    digits.insert(0, 1) # (index, object)
+                    digits[i+2] = 0
+                    carry = 0
+                elif digits[i] == 9:
+                    digits[i] = 0
+                else:
+                    digits[i] += 1
+                    carry = 0
+            else:
+                digits.insert(0, 1) # (index, object)
+                carry = 0
+            i -= 1
+        return digits
+
