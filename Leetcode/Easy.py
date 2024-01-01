@@ -173,3 +173,84 @@ class Solution:
             i -= 1
         return digits
 
+### 67. Add Binary ###
+"""
+Example 2:
+
+Input: a = "1010", b = "1011"
+Output: "10101"
+"""
+#  Reverse Way (Left to Right)
+class Solution:
+  def addBinary(self, a: str, b: str) -> str:
+    res = ""
+    carry = 0
+    a = a[::-1]
+    b = b[::-1]
+
+    for i in range(max(len(a), len(b))):
+        digitA = int(a[i]) if i < len(a) else 0
+        digitB = int(b[i]) if i < len(b) else 0
+
+        total = digitA + digitB + carry
+        digitR = total % 2
+        res += str(digitR)
+        carry = total // 2
+    
+    if carry==1:
+        res += str(carry)
+    
+    return res[::-1]
+
+# Right to Left
+class Solution:
+  def addBinary(self, a: str, b: str) -> str:
+    res = ""
+    carry = 0
+
+    i = len(a) - 1
+    j = len(b) - 1
+
+    while i >= 0 or j >= 0 or carry:
+        digitA = int(a[i]) if i >= 0 else 0
+        digitB = int(b[j]) if j >= 0 else 0
+
+        total = digitA + digitB + carry
+        digitR = total % 2
+        res = str(digitR) + res
+        carry = total // 2
+    
+        i -= 1
+        j -= 1
+
+    return res
+
+
+### 415. Add Strings ###
+"""
+Example - Add 2 deciaml numbers
+Input: num1 = "456", num2 = "77"
+Output: "533"
+"""
+
+class Solution:
+    def addStrings(self, num1: str, num2: str) -> str:
+        res = ""
+        carry = 0
+
+        i = len(num1)-1
+        j = len(num2)-1
+
+        while i>=0 or j>=0 or carry:
+            digit1 = int(num1[i]) if i>=0 else 0
+            digit2 = int(num2[j]) if j>=0 else 0
+
+            total = carry + digit1 + digit2
+            digitR = total % 10
+            res = str(digitR) + res
+            carry = total // 10
+
+            i -= 1
+            j -= 1
+
+        return res
