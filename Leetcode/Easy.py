@@ -69,6 +69,7 @@ class Solution:
 
 ### 258. Add Digits ###
 """
+Till output is a single digit number
 Input: num = 38
 Output: 2
 Explanation: The process is
@@ -130,7 +131,7 @@ Thus, the result should be [1,2,4].
 - if digit is 9, make digit 0 and carry 1 while loop keeping carry = 0 as exit condition
 """
 
-# Reverse Traversal
+# (Left to Right) Reverse Traversal
 class Solution:
     def plusOne(self, digits: List[int]) -> List[int]:
         digits = digits[::-1]
@@ -151,6 +152,7 @@ class Solution:
             i += 1
         return digits[::-1]
 
+# Right to Left Trasversl
 class Solution:
     def plusOne(self, digits: List[int]) -> List[int]:
         carry = 1
@@ -228,6 +230,8 @@ class Solution:
 
 ### 415. Add Strings ###
 """
+Same question as above, only for decimal. Only changed div and mod to 10
+
 Example - Add 2 deciaml numbers
 Input: num1 = "456", num2 = "77"
 Output: "533"
@@ -254,3 +258,40 @@ class Solution:
             j -= 1
 
         return res
+
+### 989. Add to Array-Form of Integer ###
+"""
+Same question as above, only Input is in Array form
+
+Example:
+
+Input: num = [2,7,4], k = 181
+Output: [4,5,5]
+Explanation: 274 + 181 = 455
+"""
+class Solution:
+    def addToArrayForm(self, num: List[int], k: int) -> List[int]:
+        num1 = "".join([str(x) for x in num])
+        num2 = str(k)
+        
+        res = ""
+        carry = 0
+
+        i = len(num1)-1
+        j = len(num2)-1
+
+        while i>=0 or j>=0 or carry:
+            digit1 = int(num1[i]) if i>=0 else 0
+            digit2 = int(num2[j]) if j>=0 else 0
+
+            total = carry + digit1 + digit2
+            digitR = total % 10
+            res = str(digitR) + res
+            carry = total // 10
+
+            i -= 1
+            j -= 1
+
+        result = [int(x) for x in res]
+
+        return result
