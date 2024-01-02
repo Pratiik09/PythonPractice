@@ -295,3 +295,54 @@ class Solution:
         result = [int(x) for x in res]
 
         return result
+
+### 14. Longest Common Prefix ###
+"""
+Input: strs = ["flower","flow","flight"]
+Output: "fl"
+
+If no match, return ""
+"""
+# My Solution - Iterated through all Strings
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        common = ""
+        temp = []
+        len_strs = len(strs)
+        min_len_str = min(strs, key=len)
+        len_min_str = len(min_len_str)
+
+        flag = 1
+
+        for i in range(len_min_str):
+            temp.append(min_len_str[i])
+            for j in range(len_strs):
+                if strs[j][i] == temp[0]:
+                    if j == len_strs - 1 and flag==1:
+                        common += temp[0]
+                        break
+                else:
+                    flag = 0
+                    break
+            
+            temp.pop()
+
+        return str(common)
+
+"""
+Sort and Check only for 1st and last strings in List
+"""
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        common = ""
+        strs = sorted(strs)
+        first_str = strs[0]
+        last_str = strs[-1]
+
+        for i in range( min(len(first_str), len(last_str))):
+            if first_str[i]==last_str[i]:
+                common += first_str[i]
+            else:
+                return str(common)
+        return str(common)
+            
