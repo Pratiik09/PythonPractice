@@ -318,7 +318,7 @@ class Solution:
             temp.append(min_len_str[i])
             for j in range(len_strs):
                 if strs[j][i] == temp[0]:
-                    if j == len_strs - 1 and flag==1:
+                    if j == len_strs - 1 and flag==1: # Break to handle last string of strs list
                         common += temp[0]
                         break
                 else:
@@ -346,3 +346,36 @@ class Solution:
                 return str(common)
         return str(common)
             
+### 20. Valid Parentheses ###
+"""
+Check for Valid Parenthesis, Input string consists of only these
+'(', ')', '{', '}', '[' and ']'
+
+Example:
+Input: s = "()[]{}"
+Output: true
+"""
+
+"""
+1. Use close_to_open Hashmap, rest is simple
+"""
+
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack = []
+        close_to_open = {
+            '}':'{',
+            ']':'[',
+            ')':'('
+        }
+
+        for c in s:
+            if c in close_to_open:
+                if stack and stack[-1]==close_to_open[c]:
+                    stack.pop()
+                else:
+                    return False
+            else:
+                stack.append(c)
+
+        return True if not stack else False
