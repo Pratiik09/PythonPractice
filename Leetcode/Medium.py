@@ -21,6 +21,8 @@ class Solution(object):
         each digit of n1 (in interanl loop)
 
         carry1 and carry2 is multiplied by 10 in each iteration for places
+
+        Numbers are reversed because thats how we multiply on paper
         """
         ans = 0
         carry2 = 1
