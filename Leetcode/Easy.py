@@ -379,3 +379,44 @@ class Solution:
                 stack.append(c)
 
         return True if not stack else False
+
+### 26. Remove Duplicates from Sorted Array ###
+"""
+Input: nums = [0,0,1,1,1,2,2,3,3,4]
+Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
+Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+"""
+
+"""
+My Solution:
+Not in-place, it needs extra space for storing uniques list.
+"""
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        uniques = []
+        for e in nums:
+            if e not in uniques:
+                uniques.append(e)
+        k = len(uniques)
+        for i in range(k):
+            nums[i] = uniques[i]
+        return k
+
+"""
+Two Pointer in-place approach
+O(1) space complexity
+"""
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        """
+        l = left pointer
+        r = right pointer
+        """
+        l = 1 # Because 1st element i.e. Index 0 is always 1st and Unique occurance
+        # Also, r will also start from 1
+        for r in range(1, len(nums)):
+            if nums[r] != nums[r-1]:
+                nums[l] = nums[r]
+                l += 1
+        return l
