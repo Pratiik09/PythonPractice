@@ -420,3 +420,29 @@ class Solution:
                 nums[l] = nums[r]
                 l += 1
         return l
+
+### 27. Remove Element ###
+"""
+In-place is needed. Don't use extra list or memory
+Input: nums = [0,1,2,2,3,0,4,2], val = 2
+Output: 5, nums = [0,1,4,0,3,_,_,_]
+Explanation: Your function should return k = 5, with the first five elements of nums containing 0, 0, 1, 3, and 4.
+Note that the five elements can be returned in any order.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+"""
+
+# Solution
+"""
+- left pointer increases only when values are not same
+- when different value is encountered then replace, if not keep incrementing right pointer
+"""
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        l = 0
+        for r in range(len(nums)):
+            if nums[r] != val:
+                nums[l] = nums[r]
+                l += 1
+        return l      
+
+          
