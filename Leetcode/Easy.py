@@ -445,4 +445,63 @@ class Solution:
                 l += 1
         return l      
 
-          
+### 704. Binary Search ###
+"""
+Input: nums = [-1,0,3,5,9,12], target = 9
+Output: 4
+Explanation: 9 exists in nums and its index is 4
+If target not present, return -1
+"""
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        l, r = 0, len(nums)-1
+
+        while l <= r:
+            # m = (l + r) // 2 """Classic way of doing this""" 
+            m = l + ((r-l)//2) # This way, as classic way can cause overflow error 
+                           # (Here we calculate midway between l and r and then add to l)
+            if nums[m] > target:
+                r = m - 1
+            elif nums[m] < target:
+                l = m + 1
+            else:
+                return m
+        return -1
+
+### 69. Sqrt(x) ###
+"""
+Given a non-negative integer x, return the square root of x rounded down to the nearest integer. 
+The returned integer should be non-negative as well.
+
+Example - 
+Input: x = 8
+Output: 2
+Explanation: The square root of 8 is 2.82842..., and since we round it down to the nearest integer, 2 is returned.
+"""
+class Solution:
+    def mySqrt(self, x: int) -> int:
+        """
+        Classic Math Approach
+        """
+        num = 1
+        while num * num <= x:
+            num += 1
+        return num-1
+
+    def mySqrt(self, x: int) -> int:
+        """
+        Binary Search Approach
+        """
+        res = 0
+        l, r = 0, x
+
+        while l<=r:
+            m = l + (r-l)//2
+            if m*m > x:
+                r = m - 1
+            elif m*m < x:
+                l = m + 1
+                res = m
+            else:
+                return m
+        return res
