@@ -133,11 +133,15 @@ OUTPUT: [2, 3, 5, 7]
 ### Check Prime ###
 num = 6
 
+import math as m
+
 def CheckPrime(n):
     if n <= 1:
         return False
+    elif n == 2:
+        return True
     else:
-        for den in range(2, (n//2)+1):
+        for den in range(2, m.ceil(n//2)+1):
             if n % den == 0:
                 return False
         else:

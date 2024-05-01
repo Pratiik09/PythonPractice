@@ -28,8 +28,8 @@ print(transpose)
 
 ### Reverse Integer without converting to String ###
 
-n = 1234
-r = 0
+n = 1234    # number
+r = 0       # reversed
 
 while n > 0:
     r = r*10 + n%10
@@ -116,7 +116,7 @@ a = [3,1,4,2]
 def bubblesort(arr):
   n = len(arr)
   for i in range(n-1):      # Iterate only n-1 times, because last element will be max right after 1st iteration (Optimization Perspective)
-    for j in range(n-i-1):  # Everytime, we go 1 index less. If we don't add -1, it will give out og index error during 1st iteration
+    for j in range(n-i-1):  # Everytime, we go 1 index less. If we don't add -1, it will give out of index error during 1st iteration
       if arr[j]>arr[j+1]:
         arr[j], arr[j+1] = arr[j+1], arr[j]
     
@@ -125,7 +125,7 @@ def bubblesort(arr):
 print(bubblesort(a))
 
 
-### Bubble Sort Application Question - Sort Based on 2nd sElement of Tuple ###
+### Bubble Sort Application Question - Sort Based on 2nd Element of Tuple ###
 data = {('ant', 2), ('bat', 3), ('cat', 4)}
 
 # Convert set of tuples to a list for easier manipulation
@@ -134,7 +134,7 @@ data_list = list(data)
 # Bubble sort implementation based on the second element of each tuple
 n = len(data_list)
 for i in range(n):
-    for j in range(0, n - i - 1):
+    for j in range(n - i - 1):
         if data_list[j][1] < data_list[j + 1][1]:
             # Swap elements if the second element of the tuple is smaller
             data_list[j], data_list[j + 1] = data_list[j + 1], data_list[j]
